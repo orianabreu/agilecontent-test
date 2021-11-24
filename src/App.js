@@ -1,10 +1,13 @@
-import "./App.css";
+import NavBar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+import { ResponsiveProvider } from "./ResponsiveContext/ResponsiveContext";
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Hello World</h1>
-    </div>
+    <ResponsiveProvider>
+      <NavBar />
+      <Footer />
+    </ResponsiveProvider>
   );
 }
 
