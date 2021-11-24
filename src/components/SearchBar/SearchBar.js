@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BoxContainer, GoogleLogo, Input, SearchArea } from "./styles";
 import { useResponsive } from "../../ResponsiveContext/ResponsiveContext";
 import logo from "../../assets/images/google-logo.png";
@@ -6,9 +6,22 @@ import logo from "../../assets/images/google-logo.png";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
+import faker from "faker";
 
 export default function SearchBar() {
+  const [searchAnimal, setSearchAnimal] = useState("");
   const isMobile = useResponsive();
+
+  const handleChange = (event) => {
+    setSearchAnimal(event.target.value);
+  };
+
+  const goToResults = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      console.log(faker.animal.type());
+    }
+  };
 
   return (
     <Container maxWidth='lg'>
@@ -18,7 +31,12 @@ export default function SearchBar() {
           <IconButton sx={{ p: "10px" }}>
             <SearchIcon />
           </IconButton>
-          <Input placeholder='Search for animals' />
+          <Input
+            placeholder='Search for animals'
+            value={searchAnimal}
+            onChange={handleChange}
+            onKeyPress={goToResults}
+          />
         </SearchArea>
       </BoxContainer>
     </Container>
