@@ -8,7 +8,7 @@ export const useResponsive = () => {
 };
 
 export function ResponsiveProvider({ children }) {
-  const isMobile = useMediaQuery("(max-width:484px)");
+  const isMobile = useMediaQuery("(max-width:520px)");
 
   return (
     <ResponsiveContext.Provider value={isMobile}>
