@@ -1,8 +1,6 @@
 import React from "react";
 import img from "../../assets/images/personalphoto.JPG";
-import gLogo from "../../assets/images/g-logo.png";
 import { useResponsive } from "../../ResponsiveContext/ResponsiveContext";
-import { GLogo } from "./styles";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
