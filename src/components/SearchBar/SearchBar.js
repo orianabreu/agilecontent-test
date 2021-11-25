@@ -6,10 +6,11 @@ import logo from "../../assets/images/google-logo.png";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import faker from "faker";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
   const [searchAnimal, setSearchAnimal] = useState("");
+  let navigate = useNavigate();
   const isMobile = useResponsive();
 
   const handleChange = (event) => {
@@ -19,7 +20,7 @@ export default function SearchBar() {
   const goToResults = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      console.log(faker.animal.type());
+      navigate("/Results");
     }
   };
 
@@ -31,6 +32,7 @@ export default function SearchBar() {
           <IconButton sx={{ p: "10px" }}>
             <SearchIcon />
           </IconButton>
+
           <Input
             placeholder='Search for animals'
             value={searchAnimal}
